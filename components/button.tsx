@@ -5,6 +5,7 @@ import {
   Pressable,
   Text
 } from 'react-native'
+import { clsx } from 'clsx'
 
 type Props = {
   label: string
@@ -16,14 +17,18 @@ export function Button({ label, onPress }: Props) {
 
   return (
     <View
-      style={[
-        styles.buttonContainer,
-        {
-          borderWidth: 4,
-          borderColor: isPressed ? '#ffd33d' : 'transparent',
-          borderRadius: 18
-        }
-      ]}
+      // style={[
+      //   styles.buttonContainer,
+      //   {
+      //     borderWidth: 4,
+      //     borderColor: isPressed ? '#ffd33d' : 'transparent',
+      //     borderRadius: 18
+      //   }
+      // ]}
+      className={clsx(
+        'w-20 h-20 mx-5 p-1 border-4 rounded-2xl',
+        isPressed ? ' border-yellow-400' : 'border-transparent'
+      )}
     >
       <Pressable
         style={[styles.button, { backgroundColor: '#fff' }]}
@@ -40,16 +45,8 @@ export function Button({ label, onPress }: Props) {
 }
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    width: 68,
-    height: 68,
-    marginHorizontal: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 3
-  },
   button: {
-    borderRadius: 10,
+    borderRadius: 7,
     width: '100%',
     height: '100%',
     alignItems: 'center',
