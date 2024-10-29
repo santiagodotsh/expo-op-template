@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   StyleSheet,
   View,
@@ -11,13 +12,15 @@ type Props = {
 }
 
 export function Button({ label, onPress }: Props) {
+  const [isPressed, setIsPressed] = useState<boolean>(false)
+
   return (
     <View
       style={[
         styles.buttonContainer,
         {
           borderWidth: 4,
-          borderColor: '#ffd33d',
+          borderColor: isPressed ? '#ffd33d' : 'transparent',
           borderRadius: 18
         }
       ]}
@@ -25,6 +28,8 @@ export function Button({ label, onPress }: Props) {
       <Pressable
         style={[styles.button, { backgroundColor: '#fff' }]}
         onPress={onPress}
+        onPressIn={() => setIsPressed(true)}
+        onPressOut={() => setIsPressed(false)}
       >
         <Text style={[styles.buttonLabel, { color: '#25292e' }]}>
           {label}
@@ -36,7 +41,7 @@ export function Button({ label, onPress }: Props) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
+    width: 68,
     height: 68,
     marginHorizontal: 20,
     alignItems: 'center',
@@ -56,6 +61,6 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     color: '#fff',
-    fontSize: 16
+    fontSize: 28
   }
 })

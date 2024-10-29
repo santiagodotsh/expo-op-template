@@ -35,7 +35,7 @@ export default function TabLayout() {
           title: 'Slice',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? 'information-circle' : 'information-circle-outline'}
+              name={focused ? 'apps' : 'apps-outline'}
               color={color}
               size={24}
             />

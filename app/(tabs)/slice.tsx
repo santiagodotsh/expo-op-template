@@ -22,8 +22,10 @@ export default function CounterScreen() {
         {count}
       </Text>
 
-      <Button label='Increment' onPress={() => dispatch(increment())} />
-      <Button label='Decrement' onPress={() => dispatch(decrement())} />
+      <View style={styles.buttonContainer}>
+        <Button label='-' onPress={() => dispatch(decrement())} />
+        <Button label='+' onPress={() => dispatch(increment())} />
+      </View>
     </View>
   )
 }
@@ -42,5 +44,9 @@ const styles = StyleSheet.create({
   number: {
     color: '#ffd33d',
     fontSize: 64
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 20
   }
 })
