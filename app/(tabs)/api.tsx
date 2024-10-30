@@ -16,7 +16,7 @@ export default function ApiScreen() {
       </Text>
 
       {error
-        ? <Text style={styles.text}>Oh no, there was an error</Text>
+        ? <Text style={styles.text}>Not found</Text>
         : isLoading
           ? <Text style={styles.text}>Loading...</Text>
           : data
